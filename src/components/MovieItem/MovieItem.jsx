@@ -9,6 +9,7 @@ function MovieItem({movie}) {
     //const [movieSelected, setMovieSelected] = useState(false);
 
     const handleToDetails = () => {
+        dispatch({type: 'FETCH_MOVIE_DETAILS',  payload: movie})
         history.push('/detail');
     }
 
