@@ -24,7 +24,7 @@ Installation
 Feature List
 
 # Home/List Page
-[] - add onClick/onChange to navigate to /details on click of poster (look back to gallery assignment for reference)
+[x] - add onClick/onChange to navigate to /details on click of poster (look back to gallery assignment for reference)
 [] - link/navigation to Add Movie Page
 
 # Details Page
