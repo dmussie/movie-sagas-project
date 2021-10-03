@@ -14,6 +14,8 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
+    yield takeEvery('FETCH_MOVIE_GENRES', fetchMovieGenres);
 }
 
 function* fetchAllMovies() {
@@ -29,6 +31,32 @@ function* fetchAllMovies() {
         
 }
 
+// create a fetchMovieDetails saga to select for movie descriptions from the server
+function* fetchMovieDetails(action) {
+    try {
+        const movie = action.payload;
+        console.log(movie);
+        const movieDetails = yield axios.get(`/api/movie/details/${movie.id}`);
+        yield put({type: 'SET_MOVIE_DETAIL', payload: movieDetails.data})
+    } catch (error) {
+        console.error('ERROR in fetchMovieDetails', error);
+        alert('unable to get movie details');
+    }
+}
+
+// create a fetchMovieGenres saga to select for movie genres from the server
+function* fetchMovieGenres(action) {
+    try {
+        const movie = action.payload;
+        console.log(movie);
+        const movieGenres = yield axios.get(`/api/genre/details/${movie.id}`)
+        yield put({type: 'SET_MOVIE_GENRE', payload: movieGenres.data})
+    } catch (error) {
+        console.error('ERROR in fetchMovieGenres', error);
+        alert('unable to get movie genres');
+    }
+}
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -36,6 +64,16 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+// used to collect returned movie data within a object to later select by id
+const selectedMovie = (state = {}, action) => {
+    switch(action.type) {
+        case 'SET_MOVIE_DETAIL':
             return action.payload;
         default:
             return state;
@@ -52,11 +90,23 @@ const genres = (state = [], action) => {
     }
 }
 
+// this reducer enables us to select for a movie genre's id??  
+const selectedMovieGenre = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_MOVIE_GENRE':
+            return action.payload;
+        default:
+            return state;
+    }
+} 
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
+        selectedMovie,
         genres,
+        selectedMovieGenre
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
