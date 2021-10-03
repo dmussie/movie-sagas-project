@@ -44,9 +44,46 @@ function AddMovie() {
         setMovie({...newMovie, description: event.target.value})
     }
 
+    const handleNewGenre = (event) => {
+        console.log('event happened');
+        setMovie({...newMovie, genre: event.target.value});
+    }
+
     // POST dispatch to post new movie to DOM
+    const addNewMovie = (event) => {
+        event.preventDefault();
+        dispatch({ type: 'POST_MOVIE', payload: newMovie })
+        //updates the next movie to have a new id
+        setMovie({title: '', poster: '', decription: '', genre_id: ''})
+    }
+
     return (
         // select goes here after inputs
+        <div>
+            <h3>Add A New Movie!</h3>
+            <pre>{JSON.stringify(newMovie)}</pre>
+            <form onSubmit={addNewMovie}>
+                <input type='text' placeholder="title" value={newMovie.title} onChange={handleNewTitle} />
+                <input type='text' placeholder="poster" value={newMovie.poster} onChange={handleNewPoster} />
+                <input type='text' placeholder="description" value={newMovie.decription} onChange={handleNewDescription} />
+                <input type='text' placeholder="genre" value={newMovie.genre_id} onChange={handleNewGenre} />
+                <select name="genres" id="genres">
+                    <option value="adventure">{genre.adventure}</option>
+                    <option value="animated">{genre.animated}</option>
+                    <option value="biographical">{genre.biographical}</option>
+                    <option value="comedy">{genre.comedy}</option>
+                    <option value="disaster">{genre.disaster}</option>
+                    <option value="drama">{genre.drama}</option>
+                    <option value="epic">{genre.epic}</option>
+                    <option value="fantasy">{genre.fantasy}</option>
+                    <option value="musical">{genre.musical}</option>
+                    <option value="romantic">{genre.romantic}</option>
+                    <option value="science fiction">{genre.science_fiction}</option>
+                    <option value="space-opera">{genre.space_opera}</option>
+                    <option value="superhero">{genre.superhero}</option>
+                </select>
+            </form>
+        </div>
     )
 }
 
