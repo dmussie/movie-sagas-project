@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 // get genre ID
 function AddMovie() {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // genre object will aid in selecting for a specific genre ID
     const genre = {
@@ -57,6 +58,10 @@ function AddMovie() {
         setMovie({title: '', poster: '', decription: '', genre_id: ''})
     }
 
+    const backToHome = () => {
+        history.push('/');
+    }
+
     return (
         // select goes here after inputs
         <div>
@@ -65,7 +70,7 @@ function AddMovie() {
             <form onSubmit={addNewMovie}>
                 <input type='text' placeholder="title" value={newMovie.title} onChange={handleNewTitle} />
                 <input type='text' placeholder="poster" value={newMovie.poster} onChange={handleNewPoster} />
-                <input type='text' placeholder="description" value={newMovie.decription} onChange={handleNewDescription} />
+                <input type='text' placeholder="description" value={newMovie.description} onChange={handleNewDescription} />
                 <select name="genres" id="genres" value={newMovie.genre_id} onChange={handleNewGenre}>
                     <option value="genre-dropdown">Pick a Genre!</option>
                     <option value={genre.adventure}>Adventure</option>
@@ -83,6 +88,7 @@ function AddMovie() {
                     <option value={genre.superhero}>Superhero</option>
                 </select>
             </form>
+            <button onClick={() => backToHome()}>Cancel</button>
         </div>
     )
 }
