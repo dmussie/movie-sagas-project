@@ -13,9 +13,14 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    // GET action, fetchAllMovies
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    // GET action, fetchMovieDetails
     yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
+    // GET action, fetchMovieGenres
     yield takeEvery('FETCH_MOVIE_GENRES', fetchMovieGenres);
+    // POST action, postMovies
+    yield takeEvery('POST_MOVIE', postMovie);
 }
 
 function* fetchAllMovies() {
@@ -29,6 +34,21 @@ function* fetchAllMovies() {
         console.log('get all error');
     }
         
+}
+
+function* postMovie(action) {
+    try{
+        console.log('Sagas postMovie works!');
+        console.log(action.payload);
+        const forTheDatabase = action.payload;
+        //POST new movies
+        yield axios.post('/api/movie', forTheDatabase);
+        const actionForFetch = {type: 'FETCH_MOVIES'};
+        //trigger saga
+        yield put(actionForFetch);
+    } catch (error) {
+        console.error('ERROR', error);
+    }
 }
 
 // create a fetchMovieDetails saga to select for movie descriptions from the server
