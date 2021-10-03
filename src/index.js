@@ -47,9 +47,9 @@ function* fetchMovieDetails(action) {
 // create a fetchMovieGenres saga to select for movie genres from the server
 function* fetchMovieGenres(action) {
     try {
-        const genre = action.payload;
-        console.log(genre);
-        const movieGenres = yield axios.get(`/api/genre/${genre.id}`)
+        const movie = action.payload;
+        console.log(movie);
+        const movieGenres = yield axios.get(`/api/genre/details/${movie.id}`)
         yield put({type: 'SET_MOVIE_GENRE', payload: movieGenres.data})
     } catch (error) {
         console.error('ERROR in fetchMovieGenres', error);
@@ -91,7 +91,7 @@ const genres = (state = [], action) => {
 }
 
 // this reducer enables us to select for a movie genre's id??  
-const selectedMovieGenre = (state = {}, action) => {
+const selectedMovieGenre = (state = [], action) => {
     switch(action.type) {
         case 'SET_MOVIE_GENRE':
             return action.payload;

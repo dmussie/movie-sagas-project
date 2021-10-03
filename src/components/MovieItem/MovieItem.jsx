@@ -9,6 +9,8 @@ function MovieItem({movie}) {
 
     const handleToDetails = () => {
         dispatch({type: 'FETCH_MOVIE_DETAILS',  payload: movie})
+        dispatch({type: 'FETCH_MOVIE_GENRES', payload: movie})
+        // genre dispatch and get rid of separate genre component file & folder?
         history.push('/detail');
     }
 

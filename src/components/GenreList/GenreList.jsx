@@ -23,3 +23,5 @@ function GenreList() {
         </div>
     )
 }
+
+export default GenreList;
