@@ -9,9 +9,6 @@ function App() {
       <h1>The Movies Saga!</h1>
       <Router>
         <p>
-          <Link to="/">Home</Link>  
-        </p>      
-        <p>
           <Link to="/addmovie">Add New Movie</Link>  
         </p>        
         <Route path="/" exact>
@@ -19,7 +16,6 @@ function App() {
         </Route>
         <Route path="/detail">
           <MovieDetail />
-          {/* Details page */}
         </Route>
         
 
