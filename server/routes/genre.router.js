@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     })
 });
 
+// router get request to select a specific movie's genre by id
 router.get('/:id', (req, res) => {
   const queryText = 'SELECT * FROM "movies_genres" WHERE id=$1';
   pool.query(queryText, [req.params.id])

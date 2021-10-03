@@ -9,7 +9,7 @@ function MovieDetail() {
             <h2>Details for {movieDetail.title}</h2>
             <img src={movieDetail.poster} alt={movieDetail.title}/>
             <p>Description: {movieDetail.description}</p>
-            <p>Genre(s): {movieGenre}</p>
+            {/* add genre component here */}
         </div>
     )
 }

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function MovieItem({movie}) {
-    const movieId = movie.id;
     const dispatch = useDispatch();
     const history = useHistory();
     //const [movieSelected, setMovieSelected] = useState(false);

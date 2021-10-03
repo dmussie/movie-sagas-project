@@ -70,6 +70,7 @@ const movies = (state = [], action) => {
     }
 }
 
+// used to collect returned movie data within a object to later select by id
 const selectedMovie = (state = {}, action) => {
     switch(action.type) {
         case 'SET_MOVIE_DETAIL':
@@ -78,15 +79,6 @@ const selectedMovie = (state = {}, action) => {
             return state;
     }
 }
-
-const selectedMovieGenre = (state = {}, action) => {
-    switch(action.type) {
-        case 'SET_MOVIE_GENRE':
-            return action.payload;
-        default:
-            return state;
-    }
-} 
 
 // Used to store the movie genres
 const genres = (state = [], action) => {
@@ -97,6 +89,16 @@ const genres = (state = [], action) => {
             return state;
     }
 }
+
+// this reducer enables us to select for a movie genre's id??  
+const selectedMovieGenre = (state = {}, action) => {
+    switch(action.type) {
+        case 'SET_MOVIE_GENRE':
+            return action.payload;
+        default:
+            return state;
+    }
+} 
 
 // Create one store that all components can use
 const storeInstance = createStore(
