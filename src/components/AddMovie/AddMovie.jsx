@@ -25,7 +25,7 @@ function AddMovie() {
     };
 
     //Initial state is an object, with title, poster(url), description, genres [dropdown]
-    const [newMovie, setMovie] = ({title: '', poster: '', decription: '', genre_id: ''});
+    const [newMovie, setMovie] = useState({title: '', poster: '', decription: '', genre_id: ''});
 
     //handle a new title
     const handleNewTitle = (event) => {
@@ -66,21 +66,21 @@ function AddMovie() {
                 <input type='text' placeholder="title" value={newMovie.title} onChange={handleNewTitle} />
                 <input type='text' placeholder="poster" value={newMovie.poster} onChange={handleNewPoster} />
                 <input type='text' placeholder="description" value={newMovie.decription} onChange={handleNewDescription} />
-                <input type='text' placeholder="genre" value={newMovie.genre_id} onChange={handleNewGenre} />
-                <select name="genres" id="genres">
-                    <option value="adventure">{genre.adventure}</option>
-                    <option value="animated">{genre.animated}</option>
-                    <option value="biographical">{genre.biographical}</option>
-                    <option value="comedy">{genre.comedy}</option>
-                    <option value="disaster">{genre.disaster}</option>
-                    <option value="drama">{genre.drama}</option>
-                    <option value="epic">{genre.epic}</option>
-                    <option value="fantasy">{genre.fantasy}</option>
-                    <option value="musical">{genre.musical}</option>
-                    <option value="romantic">{genre.romantic}</option>
-                    <option value="science fiction">{genre.science_fiction}</option>
-                    <option value="space-opera">{genre.space_opera}</option>
-                    <option value="superhero">{genre.superhero}</option>
+                <select name="genres" id="genres" value={newMovie.genre_id} onChange={handleNewGenre}>
+                    <option value="genre-dropdown">Pick a Genre!</option>
+                    <option value={genre.adventure}>Adventure</option>
+                    <option value={genre.animated}>Animated</option>
+                    <option value={genre.biographical}>Biographical</option>
+                    <option value={genre.comedy}>Comedy</option>
+                    <option value={genre.disaster}>Disaster</option>
+                    <option value={genre.drama}>Drama</option>
+                    <option value={genre.epic}>Epic</option>
+                    <option value={genre.fantasy}>Fantasy</option>
+                    <option value={genre.musical}>Musical</option>
+                    <option value={genre.romantic}>Romantic</option>
+                    <option value={genre.science_fiction}>Science Fiction</option>
+                    <option value={genre.space_opera}>Space-Opera</option>
+                    <option value={genre.superhero}>Superhero</option>
                 </select>
             </form>
         </div>
