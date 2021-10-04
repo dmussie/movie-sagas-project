@@ -25,12 +25,12 @@ Feature List
 
 # Home/List Page
 [x] - add onClick/onChange to navigate to /details on click of poster (look back to gallery assignment for reference)
-[] - link/navigation to Add Movie Page
+[x] - link/navigation to Add Movie Page
 
 # Details Page
-[] - create details folder and file
-[] - GET request for specific movie [req.params and :id] 
-[] - link/nav back to Home/List Page
+[x] - create details folder and file
+[x] - GET request for specific movie [req.params and :id] 
+[x] - link/nav back to Home/List Page
 
 # Add Movie Page
 [] - create movie title input field
