@@ -33,12 +33,12 @@ Feature List
 [x] - link/nav back to Home/List Page
 
 # Add Movie Page
-[] - create movie title input field
-[] - create image URL input field
-[] - add movie description text area
-[] - add dropdown (for genres)
-[] - implement Cancel button with navigates back to Home
-[] - impliment Save button, sends inputs to database AND navigates back to Home (now with new movie)
+[x] - create movie title input field
+[x] - create image URL input field
+[x] - add movie description text area
+[x] - add dropdown (for genres)
+[x] - implement Cancel button with navigates back to Home
+[x] - impliment Save button, sends inputs to database AND navigates back to Home (now with new movie)
 
 # General Considerations
 [] - Add styling
