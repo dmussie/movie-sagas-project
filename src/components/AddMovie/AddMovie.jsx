@@ -8,25 +8,9 @@ function AddMovie() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // genre object will aid in selecting for a specific genre ID
-    const genre = {
-        adventure: 1,
-        animated: 2,
-        biographical: 3,
-        comedy: 4,
-        disaster: 5,
-        drama: 6,
-        epic: 7,
-        fantasy: 8,
-        musical: 9,
-        romantic: 10,
-        science_fiction: 11,
-        space_opera: 12,
-        superhero: 13
-    };
-
+    const defaultMovie = {title: '', poster: '', description: '', genre_id: ''}
     //Initial state is an object, with title, poster(url), description, genres [dropdown]
-    const [newMovie, setMovie] = useState({title: '', poster: '', decription: '', genre_id: ''});
+    let [newMovie, setMovie] = useState(defaultMovie);
 
     //handle a new title
     const handleNewTitle = (event) => {
@@ -47,15 +31,17 @@ function AddMovie() {
 
     const handleNewGenre = (event) => {
         console.log('event happened');
-        setMovie({...newMovie, genre: event.target.value});
+        setMovie({...newMovie, genre_id: event.target.value});
     }
 
     // POST dispatch to post new movie to DOM
     const addNewMovie = (event) => {
+        console.log(event);
         event.preventDefault();
         dispatch({ type: 'POST_MOVIE', payload: newMovie })
         //updates the next movie to have a new id
         setMovie({title: '', poster: '', decription: '', genre_id: ''})
+        history.push('/');
     }
 
     const backToHome = () => {
@@ -73,22 +59,24 @@ function AddMovie() {
                 <input type='text' placeholder="description" value={newMovie.description} onChange={handleNewDescription} />
                 <select name="genres" id="genres" value={newMovie.genre_id} onChange={handleNewGenre}>
                     <option value="genre-dropdown">Pick a Genre!</option>
-                    <option value={genre.adventure}>Adventure</option>
-                    <option value={genre.animated}>Animated</option>
-                    <option value={genre.biographical}>Biographical</option>
-                    <option value={genre.comedy}>Comedy</option>
-                    <option value={genre.disaster}>Disaster</option>
-                    <option value={genre.drama}>Drama</option>
-                    <option value={genre.epic}>Epic</option>
-                    <option value={genre.fantasy}>Fantasy</option>
-                    <option value={genre.musical}>Musical</option>
-                    <option value={genre.romantic}>Romantic</option>
-                    <option value={genre.science_fiction}>Science Fiction</option>
-                    <option value={genre.space_opera}>Space-Opera</option>
-                    <option value={genre.superhero}>Superhero</option>
+                    <option value="1">Adventure</option>
+                    <option value="2">Animated</option>
+                    <option value="3">Biographical</option>
+                    <option value="4">Comedy</option>
+                    <option value="5">Disaster</option>
+                    <option value="6">Drama</option>
+                    <option value="7">Epic</option>
+                    <option value="8">Fantasy</option>
+                    <option value="9">Musical</option>
+                    <option value="10">Romantic</option>
+                    <option value="11">Science Fiction</option>
+                    <option value="12">Space-Opera</option>
+                    <option value="13">Superhero</option>
                 </select>
+                <button onClick={() => addNewMovie(event)}>Save</button>
+                <button onClick={() => backToHome()}>Cancel</button>
             </form>
-            <button onClick={() => backToHome()}>Cancel</button>
+            
         </div>
     )
 }
