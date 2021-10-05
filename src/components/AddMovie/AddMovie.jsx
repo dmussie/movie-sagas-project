@@ -62,7 +62,7 @@ function AddMovie() {
                     <option value="12">Space-Opera</option>
                     <option value="13">Superhero</option>
                 </select>
-                <button onClick={() => addNewMovie(event)}>Save</button>
+                <button type="submit">Save</button>
                 <button onClick={() => backToHome()}>Cancel</button>
             </form>
             
