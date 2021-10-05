@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-//material UI for dropdown???
 
 // get genre ID
 function AddMovie() {
@@ -11,23 +10,6 @@ function AddMovie() {
     const defaultMovie = {title: '', poster: '', description: '', genre_id: ''}
     //Initial state is an object, with title, poster(url), description, genres [dropdown]
     let [newMovie, setMovie] = useState(defaultMovie);
-
-    //handle a new title
-    const handleNewTitle = (event) => {
-        console.log('event happened');
-        //similar to in redux -- we don't want to get rid of the id field when we update title
-        setMovie({...newMovie, title: event.target.value})
-    }
-
-    const handleNewPoster = (event) => {
-        console.log('event happened');
-        setMovie({...newMovie, poster: event.target.value})
-    }
-
-    const handleNewDescription = (event) => {
-        console.log('event happened');
-        setMovie({...newMovie, description: event.target.value})
-    }
 
     const handleNewGenre = (event) => {
         console.log('event happened');
@@ -54,10 +36,17 @@ function AddMovie() {
             <h3>Add A New Movie!</h3>
             <pre>{JSON.stringify(newMovie)}</pre>
             <form onSubmit={addNewMovie}>
-                <input type='text' placeholder="title" value={newMovie.title} onChange={handleNewTitle} />
-                <input type='text' placeholder="poster" value={newMovie.poster} onChange={handleNewPoster} />
-                <input type='text' placeholder="description" value={newMovie.description} onChange={handleNewDescription} />
-                <select name="genres" id="genres" value={newMovie.genre_id} onChange={handleNewGenre}>
+                <input type='text' placeholder="title" 
+                value={newMovie.title} 
+                onChange={(event) => setMovie({...newMovie, title: event.target.value})} />
+                <input type='text' placeholder="poster" 
+                value={newMovie.poster} 
+                onChange={(event) => setMovie({...newMovie, poster: event.target.value})} />
+                <input type='text' placeholder="description" 
+                value={newMovie.description} 
+                onChange={(event) => setMovie({...newMovie, description: event.target.value})} />
+                <select name="genres" id="genres" value={newMovie.genre_id} 
+                onChange={handleNewGenre}>
                     <option value="genre-dropdown">Pick a Genre!</option>
                     <option value="1">Adventure</option>
                     <option value="2">Animated</option>
