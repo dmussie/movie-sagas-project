@@ -8,15 +8,21 @@ function AddMovie() {
     const history = useHistory();
 
     const defaultMovie = {title: '', poster: '', description: '', genre_id: ''}
-    //Initial state is an object, with title, poster(url), description, genres [dropdown]
+    //Initial state is an object, with title, poster(url), description, genre_id [dropdown]
     let [newMovie, setMovie] = useState(defaultMovie);
 
+    //This handler function enables a user's dropdown selection to be saved 
+    //once a movie is posted to the database
     const handleNewGenre = (event) => {
         console.log('event happened');
         setMovie({...newMovie, genre_id: event.target.value});
     }
 
     // POST dispatch to post new movie to DOM
+    // Once this function is called via click action
+    // The post movie payload is dispatched to the saga prior to the server
+    // User inputs will populate the default empty strings for each category
+    // Finally, the user will be sent to the home screen
     const addNewMovie = (event) => {
         console.log(event);
         event.preventDefault();
@@ -26,10 +32,16 @@ function AddMovie() {
         history.push('/');
     }
 
+    // This enables a user to be sent back to the 
+    // home screen when the Cancel button is clicked
     const backToHome = () => {
         history.push('/');
     }
 
+    // this return will render all of the inputs and click actions on this Add Page
+    // addNewMovie is called onSubmit, so when the save button is clicked,
+    // user data is sent out to be saved to the database, and sent back to the user
+    // as a new movie on the DOM on the movie list page
     return (
         // select goes here after inputs
         <div>

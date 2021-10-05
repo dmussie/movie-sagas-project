@@ -25,6 +25,7 @@ function* rootSaga() {
 
 function* fetchAllMovies() {
     // get all movies from the DB
+    // we then 'put' this data in our movies reducer for temporary storage
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
@@ -37,6 +38,8 @@ function* fetchAllMovies() {
 }
 
 function* postMovie(action) {
+    // this saga handles posting user inputs to the server
+    // which is then saved to our database
     try{
         console.log('Sagas postMovie works!');
         console.log(action.payload);
@@ -51,7 +54,9 @@ function* postMovie(action) {
     }
 }
 
-// create a fetchMovieDetails saga to select for movie descriptions from the server
+// create a fetchMovieDetails saga to select for specific movie details from the server
+// we are able to do this from movie id's
+// this data is then sent to the selectedMovie reducer for temporary storage
 function* fetchMovieDetails(action) {
     try {
         const movie = action.payload;
@@ -65,6 +70,9 @@ function* fetchMovieDetails(action) {
 }
 
 // create a fetchMovieGenres saga to select for movie genres from the server
+// movie id's are again integral for selecting the movie genre detail
+// a separate saga for this attribute enabled me to map and select for specific genres 
+// in the MovieDetail component
 function* fetchMovieGenres(action) {
     try {
         const movie = action.payload;
@@ -80,7 +88,7 @@ function* fetchMovieGenres(action) {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
+// Used to temporarily store movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
@@ -90,7 +98,7 @@ const movies = (state = [], action) => {
     }
 }
 
-// used to collect returned movie data within a object to later select by id
+// used to collect returned movie data within a object to be later selected by id
 const selectedMovie = (state = {}, action) => {
     switch(action.type) {
         case 'SET_MOVIE_DETAIL':
@@ -110,7 +118,7 @@ const genres = (state = [], action) => {
     }
 }
 
-// this reducer enables us to select for a movie genre's id??  
+// fetchMovieGenres data is temporarily stored in this reducer 
 const selectedMovieGenre = (state = [], action) => {
     switch(action.type) {
         case 'SET_MOVIE_GENRE':
