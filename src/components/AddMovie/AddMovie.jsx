@@ -34,7 +34,6 @@ function AddMovie() {
         // select goes here after inputs
         <div>
             <h3>Add A New Movie!</h3>
-            <pre>{JSON.stringify(newMovie)}</pre>
             <form onSubmit={addNewMovie}>
                 <input type='text' placeholder="title" 
                 value={newMovie.title} 
