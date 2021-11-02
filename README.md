@@ -4,9 +4,27 @@ Movie Sagas Project
 
 ## Description
 
-For this application, I had a host of data of several prominent movies, stored in a number of tables within a database, that needed to be rendered on the DOM for viewing. I also needed to establish a method for a user to add a movie on the client side to be stored in this database along with these original movies.  
+For this application, I had detail data of several prominent movies, stored in a number of tables within a database, that needed to be rendered on the DOM for viewing, interaction, and addition. These movies needed to be displayed with their respective poster images. If a user clicks on these images, the user is navigated to a details page which displays text details of the selected movie. I also needed to establish a method for a user to add a movie, write a description, and assign it a genre on the client side to be stored in this database along with these original movies.  
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+To see the fully functional site, please visit: (heroku site)
+
+## Screen Shot
+
+# Prerequisites
+
+## Installation
+
+## Usage
+
+## Built With
+
+## Acknowledgement
+
+Thanks to the instructors and fellow students at Prime Digital Academy for helping me bring this application to life.
+
+## Support
+
+If you have any suggestions or issues, please email me at dannymussie7@gmail.com
 
 ## Checklist
 
