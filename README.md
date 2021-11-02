@@ -1,10 +1,10 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Movie Sagas Project
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+For this application, I had a host of data of several prominent movies, stored in a number of tables within a database, that needed to be rendered on the DOM for viewing. I also needed to establish a method for a user to add a movie on the client side to be stored in this database along with these original movies.  
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
 
