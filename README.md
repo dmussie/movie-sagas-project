@@ -10,7 +10,7 @@ To see the fully functional site, please visit: (heroku site)
 
 ## Screen Shot
 
-# Prerequisites
+### Prerequisites
 
 ## Installation
 
