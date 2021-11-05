@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 // This function handles displaying all details on the DOM when the user clicks 
 // a movie poster on the home page
@@ -37,7 +38,12 @@ function MovieDetail() {
                        
                     );
                 })}
-                <button onClick={handleToHome}>Back To List</button>
+                <Button
+                variant="contained"
+                color="primary" 
+                onClick={handleToHome}>
+                    Back To List
+                </Button>
             </section>
         </div>
         </>

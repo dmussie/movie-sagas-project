@@ -11,12 +11,28 @@ I needed to implement redux-sagas to handle how data was being passed between cl
 To see the fully functional site, please visit: (heroku site)
 
 ## Screen Shot
+-[Home Page](public/images/HomePage.jpg)
+-[Add Movie Page](public/images/AddMoviePage.jpg)
+
+## Technologies
+This version uses React, Redux-Sagas, Express, PostgreSQL and Material UI. 
+(a full list of dependencies can be found in `package.json`).
 
 ### Prerequisites
+Before you get started, make sure you have the following software installed on your computer:
+
+- [Node.js](https://nodejs.org/en/)
+- [PostrgeSQL](https://www.postgresql.org/)
+- [Nodemon](https://nodemon.io/)
 
 ## Installation
+- npm install
+- npm run server
+- npm run client
 
 ## Usage
+- On the main movie page, select a movie poster to navigate to a details page with more information on the selected movie
+-
 
 ## Built With
 
@@ -35,11 +51,7 @@ Database Setup
 [x] - create saga_movies_weekend database
 [x] - run queries from database.sql on database
 
-Installation
 
-[x] - npm install
-[x] - npm run server
-[x] - npm run client
 
 Feature List
 
