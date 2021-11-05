@@ -4,7 +4,9 @@ Movie Sagas Project
 
 ## Description
 
-For this application, I had detail data of several prominent movies, stored in a number of tables within a database, that needed to be rendered on the DOM for viewing, interaction, and addition. These movies needed to be displayed with their respective poster images. If a user clicks on these images, the user is navigated to a details page which displays text details of the selected movie. I also needed to establish a method for a user to add a movie, write a description, and assign it a genre on the client side to be stored in this database along with these original movies.  
+For this application, I had detail data of several prominent movies, stored in a number of tables within a database, that needed to be rendered on the DOM for viewing, interaction, and addition. These movies needed to be displayed with their respective poster images. If a user clicks on these images, the user is navigated to a details page which displays text details of the selected movie. I also needed to establish a method for a user to add a movie, write a description, and assign it a genre on the client side to be stored in this database along with these original movies.
+
+I needed to implement redux-sagas to handle how data was being passed between client-side components and to facilitate communication with the server and database. I had reducers temporarily hold relevant movie data that gets appended to the DOM. I had saga functions handle communication with the server with instructions to the database to either pull, edit or add movie data. 
 
 To see the fully functional site, please visit: (heroku site)
 
