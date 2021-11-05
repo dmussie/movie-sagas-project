@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 // get genre ID
 function AddMovie() {
@@ -73,8 +74,18 @@ function AddMovie() {
                     <option value="12">Space-Opera</option>
                     <option value="13">Superhero</option>
                 </select>
-                <button type="submit">Save</button>
-                <button onClick={() => backToHome()}>Cancel</button>
+                <Button
+                variant="contained"
+                color="primary" 
+                type="submit">
+                    Save
+                </Button>
+                <Button
+                variant="contained"
+                color="secondary" 
+                onClick={() => backToHome()}>
+                    Cancel
+                </Button>
             </form>
             
         </div>
