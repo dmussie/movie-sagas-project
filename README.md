@@ -8,7 +8,7 @@ For this application, I had detail data of several prominent movies, stored in a
 
 I needed to implement redux-sagas to handle how data was being passed between client-side components and to facilitate communication with the server and database. I had reducers temporarily hold relevant movie data that gets appended to the DOM. I had saga functions handle communication with the server with instructions to the database to either pull, edit or add movie data. 
 
-To see the fully functional site, please visit: (heroku site)
+To see the fully functional site, please visit: (https://git.heroku.com/movie-sagas-project.git)
 
 ## Screen Shot
 -[Home Page](public/images/HomePage.jpg)
